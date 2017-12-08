@@ -10,6 +10,17 @@ attr_accessor :customer_id, :film_id
     @film_id = options['film_id'].to_i
   end
 
+  def Ticket.all()
+    sql = "SELECT * FROM tickets"
+    tickets = SqlRunner.run(sql)
+    return tickets.map {|ticket| Ticket.new(ticket)}
+  end
+
+  def Ticket.delete_all()
+    sql = "DELETE FROM tickets"
+    SqlRunner.run(sql)
+  end
+
   def save()
     sql = "INSERT INTO tickets
     (
@@ -26,11 +37,8 @@ attr_accessor :customer_id, :film_id
     @id = ticket['id'].to_i
   end
 
-  def Ticket.all()
-      sql = "SELECT * FROM tickets"
-      tickets = SqlRunner.run(sql)
-      return tickets.map {|ticket| Ticket.new(ticket)}
-    end
+
+
 
 
 end

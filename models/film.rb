@@ -11,6 +11,17 @@ class Film
     @price = options['price'].to_f
   end
 
+  def Film.all()
+    sql = "SELECT * FROM films"
+    films = SqlRunner.run(sql)
+    return films.map {|film| Film.new(film)}
+  end
+
+  def Film.delete_all()
+    sql = "DELETE FROM films"
+    SqlRunner.run(sql)
+  end
+
   def save()
     sql = "INSERT INTO films
     (
@@ -27,10 +38,5 @@ class Film
     @id = film['id'].to_i
   end
 
-  def Film.all()
-    sql = "SELECT * FROM films"
-    films = SqlRunner.run(sql)
-    return films.map {|film| Film.new(film)}
-  end
 
 end
