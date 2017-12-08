@@ -40,6 +40,8 @@ all_customers = Customer.all()
 ###update
 ticket1.film_id = film2.id
 ticket1.update()
+film2.price = 9.00
+film2.update()
 
 binding.pry
 nil
