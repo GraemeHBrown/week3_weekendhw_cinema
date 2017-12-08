@@ -22,6 +22,15 @@ class Film
     SqlRunner.run(sql)
   end
 
+  def Film.find_by_id(id)
+    sql = "SELECT * FROM films WHERE id = $1;"
+    values = [id]
+    results_array = SqlRunner.run(sql, values)
+    film_hash = results_array[0]
+    film = Film.new(film_hash)
+    return film
+  end
+
   def save()
     sql = "INSERT INTO films
     (

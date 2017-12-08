@@ -22,6 +22,15 @@ class Customer
     SqlRunner.run(sql)
   end
 
+  def Customer.find_by_id(id)
+    sql = "SELECT * FROM customers WHERE id = $1;"
+    values = [id]
+    results_array = SqlRunner.run(sql, values)
+    customer_hash = results_array[0]
+    customer = Customer.new(customer_hash)
+    return customer
+  end
+
   def save()
     sql = "INSERT INTO customers
     (

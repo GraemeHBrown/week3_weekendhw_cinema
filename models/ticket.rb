@@ -21,6 +21,15 @@ class Ticket
     SqlRunner.run(sql)
   end
 
+  def Ticket.find_by_id(id)
+    sql = "SELECT * FROM tickets WHERE id = $1;"
+    values = [id]
+    results_array = SqlRunner.run(sql, values)
+    ticket_hash = results_array[0]
+    ticket = Ticket.new(ticket_hash)
+    return ticket
+  end
+
   def save()
     sql = "INSERT INTO tickets
     (

@@ -45,5 +45,10 @@ film2.update()
 customer1.name = 'Jane'
 customer1.update()
 
+###find_by_id class methods
+found_ticket = Ticket.find_by_id(ticket1.id)
+found_film = Film.find_by_id(film1.id)
+found_customer = Customer.find_by_id(customer1.id)
+
 binding.pry
 nil
