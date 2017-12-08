@@ -28,6 +28,7 @@ all_customers = Customer.all()
 
 ###delete one
 #customer1.delete()
+#film1.delete()
 
 binding.pry
 nil
