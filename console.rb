@@ -42,6 +42,8 @@ ticket1.film_id = film2.id
 ticket1.update()
 film2.price = 9.00
 film2.update()
+customer1.name = 'Jane'
+customer1.update()
 
 binding.pry
 nil
