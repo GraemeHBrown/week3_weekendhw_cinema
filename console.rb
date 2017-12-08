@@ -19,6 +19,7 @@ ticket1.save()
 #Getting all of the objects
 all_tickets = Ticket.all()
 all_films = Film.all()
+all_customers = Customer.all()
 
 binding.pry
 nil
