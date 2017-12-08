@@ -33,9 +33,13 @@ all_films = Film.all()
 all_customers = Customer.all()
 
 ###delete one
-customer2.delete()
-film2.delete()
-ticket2.delete()
+# customer2.delete()
+# film2.delete()
+# ticket2.delete()
+
+###update
+ticket1.film_id = film2.id
+ticket1.update()
 
 binding.pry
 nil
