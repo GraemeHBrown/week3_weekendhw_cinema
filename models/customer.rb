@@ -31,6 +31,15 @@ class Customer
     return customer
   end
 
+  def Customer.ticket_count(id)
+    sql = "SELECT COUNT(tickets)
+    FROM tickets
+    WHERE tickets.customer_id = $1;"
+    values = [id]
+    results_hash = SqlRunner.run(sql, values).first
+    return results_hash['count'].to_i
+  end
+
   def save()
     sql = "INSERT INTO customers
     (

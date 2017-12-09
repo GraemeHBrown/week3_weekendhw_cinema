@@ -68,5 +68,10 @@ found_customers = film1.customers_for_film()
 ### buying tickets reduces customer funds
 customer1.buying_ticket_reduces_customer_funds()
 
+### check how many tickets were bought by customer
+#note this is implemented as class method but could also be an
+# instance method
+ticket_count = Customer.ticket_count(customer1.id)
+
 binding.pry
 nil
