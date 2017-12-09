@@ -73,5 +73,15 @@ customer1.buying_ticket_reduces_customer_funds()
 # instance method
 ticket_count = Customer.ticket_count(customer1.id)
 
+###check how many customers are going to a particular film
+found_customers_for_film = film2.customers_for_film()
+customer_count_expected = found_customers_for_film.size()
+customer_count_actual = film2.customer_count_for_film()
+test_result = false
+if customer_count_expected == customer_count_actual
+  test_result = true
+end
+p "Customer count for film method working?: #{test_result}"
+
 binding.pry
 nil

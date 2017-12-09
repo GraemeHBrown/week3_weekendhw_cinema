@@ -78,5 +78,9 @@ class Film
       return customer_hashes.map{|customer| Customer.new(customer)}
     end
 
+    def customer_count_for_film()
+      return customers_for_film.size()
+    end
+
 
 end
