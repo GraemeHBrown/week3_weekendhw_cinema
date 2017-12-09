@@ -78,5 +78,17 @@ class Customer
       return film_hashes.map{|film| Film.new(film)}
     end
 
+    def buying_ticket_reduces_customer_funds()
+      customer_films = films_for_customer()
+      price_of_all_films = 0
+      for film in customer_films
+        price_of_all_films += film.price
+      end
+      current_funds = @funds
+      if current_funds >= price_of_all_films
+        @funds -= price_of_all_films
+        update()
+      end
+    end
 
-end
+  end

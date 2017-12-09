@@ -65,5 +65,8 @@ found_films = customer1.films_for_customer()
 ### find customers for a film
 found_customers = film1.customers_for_film()
 
+### buying tickets reduces customer funds
+customer1.buying_ticket_reduces_customer_funds()
+
 binding.pry
 nil
