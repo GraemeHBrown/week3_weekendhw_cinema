@@ -5,8 +5,8 @@ require('pry-byebug')
 
 ###Class methods for deleting all
 Ticket.delete_all()
-Film.delete_all()
-Customer.delete_all()
+# Film.delete_all()
+# Customer.delete_all()
 
 ###Creating objects and saving them to db
 customer1 = Customer.new({'name' => 'Fred', 'funds' => 20.00})
@@ -35,6 +35,8 @@ ticket3.save()
 
 ticket4 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film1.id})
 ticket4.save()
+
+
 
 ###Getting all of the objects
 all_tickets = Ticket.all()
