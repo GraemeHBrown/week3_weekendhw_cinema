@@ -72,7 +72,8 @@ class Film
       sql = "SELECT customers.*
       FROM customers
       INNER JOIN tickets ON tickets.customer_id = customers.id
-      WHERE tickets.film_id = $1;"
+      INNER JOIN screenings ON tickets.screening_id = screenings.id
+      WHERE screenings.film_id = $1"
       values = [@id]
       customer_hashes = SqlRunner.run(sql, values)
       return customer_hashes.map{|customer| Customer.new(customer)}
