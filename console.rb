@@ -80,29 +80,29 @@ found_film = Film.find_by_id(film1.id)
 found_customer = Customer.find_by_id(customer1.id)
 found_screening = Screening.find_by_id(screening1.id)
 
-# ###find films for customer
-# found_films = customer1.films_for_customer()
-#
+###find films for customer
+found_films = customer1.films_for_customer()
+
 ### find customers for a film
 found_customers = film1.customers_for_film()
 
-# ### buying tickets reduces customer funds
-# customer1.buying_ticket_reduces_customer_funds()
-#
-# ### check how many tickets were bought by customer
-# #note this is implemented as class method but could also be an
-# # instance method
-# ticket_count = Customer.ticket_count(customer1.id)
-#
-# ###check how many customers are going to a particular film
-# found_customers_for_film = film2.customers_for_film()
-# customer_count_expected = found_customers_for_film.size()
-# customer_count_actual = film2.customer_count_for_film()
-# test_result = false
-# if customer_count_expected == customer_count_actual
-#   test_result = true
-# end
-# p "Customer count for film method working?: #{test_result}"
+### buying tickets reduces customer funds
+customer1.buying_ticket_reduces_customer_funds()
+
+### check how many tickets were bought by customer
+#note this is implemented as class method but could also be an
+# instance method
+ticket_count = Customer.ticket_count(customer2.id)
+
+###check how many customers are going to a particular film
+found_customers_for_film = film2.customers_for_film()
+customer_count_expected = found_customers_for_film.size()
+customer_count_actual = film2.customer_count_for_film()
+test_result = false
+if customer_count_expected == customer_count_actual
+  test_result = true
+end
+p "Customer count for film method working?: #{test_result}"
 
 binding.pry
 nil

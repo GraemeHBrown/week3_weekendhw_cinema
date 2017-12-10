@@ -80,7 +80,8 @@ class Customer
     def films_for_customer()
       sql = "SELECT DISTINCT films.*
       FROM films
-      INNER JOIN tickets ON tickets.film_id = films.id
+      INNER JOIN screenings ON screenings.film_id = films.id
+      INNER JOIN tickets ON tickets.screening_id = screenings.id
       WHERE tickets.customer_id = $1;"
       values = [@id]
       film_hashes = SqlRunner.run(sql, values)
