@@ -31,6 +31,19 @@ class Film
     return film
   end
 
+  def Film.find_most_popular_time(id)
+    sql = "SELECT COUNT(*) as tickets_sold, screenings.time as screening_time
+    FROM tickets
+    INNER JOIN screenings
+    ON screenings.id = tickets.screening_id
+    WHERE screenings.film_id = $1
+    GROUP BY screenings.time"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    most_popular_result = results.max_by{|k,v| v}
+    return most_popular_result['screening_time']
+  end
+
   def save()
     sql = "INSERT INTO films
     (

@@ -38,6 +38,9 @@ screening2.save()
 screening3 = Screening.new({'film_id' => film3.id, 'time' => '19:00', 'total_tickets_available' => 50})
 screening3.save()
 
+screening4 = Screening.new({'film_id' => film1.id, 'time' => '20:00', 'total_tickets_available' => 50})
+screening4.save()
+
 ticket1 = Ticket.new({'customer_id' => customer1.id, 'screening_id' => screening1.id})
 ticket1.save()
 
@@ -49,6 +52,9 @@ ticket3.save()
 
 ticket4 = Ticket.new({'customer_id' => customer2.id, 'screening_id' => screening3.id})
 ticket4.save()
+
+ticket5 = Ticket.new({'customer_id' => customer3.id, 'screening_id' => screening4.id})
+ticket5.save()
 
 
 
@@ -103,6 +109,9 @@ if customer_count_expected == customer_count_actual
   test_result = true
 end
 p "Customer count for film method working?: #{test_result}"
+
+### find the most popular time for a given film
+most_popular_time = Film.find_most_popular_time(film1.id)
 
 binding.pry
 nil
